@@ -1,0 +1,395 @@
+@charset "UTF-8";
+* {
+  box-sizing: border-box;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+body {
+  background: url("../images/pattern.jpg") 0 0 repeat;
+}
+
+.cardPreview {
+  width: 150px;
+  height: 200px;
+  overflow: hidden;
+}
+.cardPreview .cardContainer {
+  transform: scale(0.5);
+  position: relative;
+  top: -90px;
+  left: -35px;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 274px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.flip-card .flip-card-flipped {
+  transform: rotateY(180deg);
+}
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+.flip-card:hover .flip-card-inner.flip-card-flipped {
+  transform: rotateY(0deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+.cardPagination {
+  width: auto;
+  margin: 10px auto;
+  text-align: center;
+}
+.cardPagination a {
+  color: rgb(127, 165, 147);
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  width: 25%;
+  border: 1px solid green;
+  background: darkgreen;
+}
+.cardPagination a:hover {
+  background: darkslategrey;
+}
+
+.cardTile {
+  box-sizing: content-box;
+  width: 234px;
+  height: 345px;
+  position: relative;
+  border: 5px solid rgb(185, 185, 181);
+  border-radius: 10px;
+  padding: 15px;
+  color: rgba(0, 0, 0, 0.5);
+  /* font-size: small; */
+  display: inline-block;
+  background-color: rgb(160, 160, 160);
+  background-size: cover;
+  background-position: center;
+}
+.cardTile.Rotation90 {
+  transform: rotate(90deg);
+  moz-transform-origin: bottom;
+  transform-origin: bottom;
+}
+.cardTile.Rotation05neg, .cardTile.cardUsed {
+  transform: rotate(-5deg);
+  moz-transform-origin: bottom;
+  transform-origin: bottom;
+}
+.cardTile.cardUsed .cardTileOverlay {
+  background-color: #000;
+  opacity: 0.5;
+}
+.cardTile.cardBack {
+  background-image: url("../images/cardback.png?v=1");
+  background-size: cover;
+  background-position: center;
+  background-color: rgb(61, 16, 46);
+}
+.cardTile .cardTileOverlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+.cardTile .cardHeader, .cardTile .cardHeader2 {
+  font-size: 1rem;
+  color: rgb(37, 37, 37);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  position: absolute;
+  bottom: -35px;
+  left: 0;
+  height: 50px;
+  width: 345px;
+  margin-left: 14px;
+  border-color: inherit;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+  opacity: 50%;
+  transform: rotate(270deg);
+  moz-transform-origin: 0 0;
+  transform-origin: 0 0;
+  /*TODO: předělat */
+}
+.cardTile .cardHeader.landType1, .cardTile .cardHeader2.landType1 {
+  background-color: chocolate !important;
+}
+.cardTile .cardHeader.landType1 .cardPrice, .cardTile .cardHeader.landType1 .cardValue, .cardTile .cardHeader2.landType1 .cardPrice, .cardTile .cardHeader2.landType1 .cardValue {
+  background-color: chocolate !important;
+  /* background-color: lighten($color, 45%) !important; */
+}
+.cardTile .cardHeader.landType2, .cardTile .cardHeader2.landType2 {
+  background-color: #2f1cb9 !important;
+}
+.cardTile .cardHeader.landType2 .cardPrice, .cardTile .cardHeader.landType2 .cardValue, .cardTile .cardHeader2.landType2 .cardPrice, .cardTile .cardHeader2.landType2 .cardValue {
+  background-color: #2f1cb9 !important;
+  /* background-color: lighten($color, 45%) !important; */
+}
+.cardTile .cardHeader.landType3, .cardTile .cardHeader2.landType3 {
+  background-color: #ead893 !important;
+}
+.cardTile .cardHeader.landType3 .cardPrice, .cardTile .cardHeader.landType3 .cardValue, .cardTile .cardHeader2.landType3 .cardPrice, .cardTile .cardHeader2.landType3 .cardValue {
+  background-color: #ead893 !important;
+  /* background-color: lighten($color, 45%) !important; */
+}
+.cardTile .cardHeader.landType4, .cardTile .cardHeader2.landType4 {
+  background-color: #025304 !important;
+}
+.cardTile .cardHeader.landType4 .cardPrice, .cardTile .cardHeader.landType4 .cardValue, .cardTile .cardHeader2.landType4 .cardPrice, .cardTile .cardHeader2.landType4 .cardValue {
+  background-color: #025304 !important;
+  /* background-color: lighten($color, 45%) !important; */
+}
+.cardTile .cardHeader.landType5, .cardTile .cardHeader2.landType5 {
+  background-color: #443e3e !important;
+}
+.cardTile .cardHeader.landType5 .cardPrice, .cardTile .cardHeader.landType5 .cardValue, .cardTile .cardHeader2.landType5 .cardPrice, .cardTile .cardHeader2.landType5 .cardValue {
+  background-color: #443e3e !important;
+  /* background-color: lighten($color, 45%) !important; */
+}
+.cardTile .cardHeader.landType6, .cardTile .cardHeader2.landType6 {
+  background-color: rgb(110, 13, 110) !important;
+}
+.cardTile .cardHeader.landType6 .cardPrice, .cardTile .cardHeader.landType6 .cardValue, .cardTile .cardHeader2.landType6 .cardPrice, .cardTile .cardHeader2.landType6 .cardValue {
+  background-color: rgb(110, 13, 110) !important;
+  /* background-color: lighten($color, 45%) !important; */
+}
+.cardTile .cardHeader.landType1, .cardTile .cardHeader2.landType1 {
+  border-color: yellow !important;
+}
+.cardTile .cardHeader.landType2, .cardTile .cardHeader2.landType2 {
+  border-color: #a0fff6 !important;
+}
+.cardTile .cardHeader.landType3, .cardTile .cardHeader2.landType3 {
+  border-color: #e68f20 !important;
+}
+.cardTile .cardHeader.landType4, .cardTile .cardHeader2.landType4 {
+  border-color: #02f706 !important;
+}
+.cardTile .cardHeader.landType5, .cardTile .cardHeader2.landType5 {
+  border-color: black !important;
+}
+.cardTile .cardHeader.landType6, .cardTile .cardHeader2.landType6 {
+  border-color: #e78bd0 !important;
+}
+.cardTile .cardHeader.landType1, .cardTile .cardHeader2.landType1 {
+  color: white !important;
+}
+.cardTile .cardHeader.landType2, .cardTile .cardHeader2.landType2 {
+  color: white !important;
+}
+.cardTile .cardHeader.landType3, .cardTile .cardHeader2.landType3 {
+  color: black !important;
+}
+.cardTile .cardHeader.landType4, .cardTile .cardHeader2.landType4 {
+  color: white !important;
+}
+.cardTile .cardHeader.landType5, .cardTile .cardHeader2.landType5 {
+  color: white !important;
+}
+.cardTile .cardHeader.landType6, .cardTile .cardHeader2.landType6 {
+  color: white !important;
+}
+.cardTile .cardHeader .headerTexts, .cardTile .cardHeader2 .headerTexts {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  padding-right: 65px;
+  text-align: center;
+}
+.cardTile .cardHeader .cardName, .cardTile .cardHeader .cardTitle, .cardTile .cardHeader2 .cardName, .cardTile .cardHeader2 .cardTitle {
+  display: block;
+}
+.cardTile .cardHeader .cardTitle, .cardTile .cardHeader2 .cardTitle {
+  font-size: x-small;
+}
+.cardTile .cardWP {
+  position: absolute;
+  right: 6px;
+  bottom: 5px;
+  height: 64px;
+  width: 64px;
+  line-height: 64px;
+  font-weight: bold;
+  font-size: xx-large;
+  text-align: center;
+  color: white;
+  opacity: 0.8;
+  background-image: url("../images/winpoint.png?v=1");
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  border: 1px solid gold;
+}
+.cardTile.cardType_monster .cardHeader .cardPrice, .cardTile.cardType_season .cardHeader .cardSeasonIcon, .cardTile.cardType_land .cardHeader .cardValue, .cardTile.cardType_personal .cardHeader .cardValue, .cardTile.cardType_personal .cardHeader2 .cardPrice {
+  position: relative;
+  z-index: 100;
+  float: right;
+  font-weight: bold;
+  height: 65px;
+  width: 65px;
+  line-height: 65px;
+  text-align: center;
+  margin-top: -9px;
+  margin-right: -10px;
+  background-color: inherit;
+  border-color: inherit;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 50%;
+  font-size: xxx-large;
+}
+.cardTile.cardType_monster .cardHeader {
+  position: relative;
+  bottom: unset;
+  left: unset;
+  height: 50px;
+  width: 234px;
+  margin-left: unset;
+  transform: rotate(0deg);
+  moz-transform-origin: 0 0;
+  transform-origin: 0 0;
+}
+.cardTile.cardType_monster .cardHeader .cardRageCounter {
+  position: relative;
+  z-index: 50;
+  clear: both;
+  float: right;
+  height: 40px;
+  width: 40px;
+  margin-top: -3px;
+  margin-right: 3px;
+  background: radial-gradient(circle, rgb(70, 1, 1) 0%, rgb(255, 6, 6) 100%);
+  border-color: rgb(150, 5, 5);
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 50%;
+}
+.cardTile.cardType_monster .cardHeader .cardRageCounter .icon {
+  width: 100%;
+  height: 100%;
+  background-image: url("../images/ragecounter.png?v=1");
+  background-size: 95%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.cardTile.cardType_monster .cardHeader .cardBonusCard {
+  position: relative;
+  z-index: 75;
+  clear: both;
+  float: right;
+  height: 55px;
+  width: 35px;
+  margin-top: 1px;
+  margin-right: 5px;
+  background-image: url("../images/cardback.png?v=1");
+  background-size: 850%;
+  background-position: center;
+  background-color: gray;
+  border-color: #a3a3a3;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+  font-size: xx-large;
+  font-weight: bold;
+  line-height: 40px;
+  text-align: center;
+}
+.cardTile.cardType_monster .cardHeader .cardBonusCard .icon {
+  position: relative;
+  top: -25%;
+  width: 100%;
+  height: 100%;
+  background-image: url("../images/cardDrawArrow.png?v=1");
+  background-size: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.cardTile.cardType_personal .cardHeader, .cardTile.cardType_personal .cardHeader2 {
+  background-color: lightgoldenrodyellow;
+  border-color: burlywood;
+}
+.cardTile.cardType_personal .cardHeader {
+  font-size: unset;
+  text-transform: unset;
+}
+.cardTile.cardType_personal .cardHeader b {
+  text-transform: uppercase;
+}
+.cardTile.cardType_personal .cardHeader .cardDesciption {
+  font-size: small;
+}
+.cardTile.cardType_personal .cardHeader2 {
+  position: relative;
+  bottom: -345px;
+  left: 184px;
+  height: 50px;
+  margin-left: unset;
+  opacity: 0.7;
+}
+.cardTile.cardType_personal .cardHeader2 .cardPrice {
+  transform: rotate(90deg);
+  background-image: url("../images/goldencoin.png?v=1");
+  background-size: cover;
+  background-position: center;
+  color: rgba(0, 0, 0, 0.7333333333);
+  font-size: 2.5rem;
+}
+.cardTile.cardType_season .cardHeader .cardSeasonIcon {
+  background-image: url("../images/cardback.png?v=1");
+  background-size: 550%;
+  background-position: center;
+}
+.cardTile.cardType_season .cardWP {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  margin-left: unset;
+  transform: rotate(270deg);
+}
+.cardTile.cardType_land .cardHeader .cardPrice {
+  clear: both;
+  float: right;
+  height: 30px;
+  width: 45px;
+  margin-top: 10px;
+  opacity: 0.8;
+  background-image: url("../images/cardback.png?v=1");
+  background-size: 550%;
+  background-position: center;
+  border-color: inherit;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+}/*# sourceMappingURL=styles.css.map */

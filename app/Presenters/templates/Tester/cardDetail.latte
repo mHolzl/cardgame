@@ -1,0 +1,47 @@
+{* This is the welcome page, you can delete it *}
+{import '..\Components\cardTile.latte'}
+
+
+{block content}
+<style>
+.cardId_{$card->id} {
+    background-image: url('{$constImagesRoot|noescape}{$card->default_image|noescape}?v=1');
+}
+</style>
+<div class="cardPagination">
+    {if $prevCard != null}
+        <a n:href="Tester:cardDetail $prevCard->id" title="{$prevCard->name}: {$prevCard->title}"> &lt;&lt;&lt;</a>
+    {else}
+        <a href="#" disabled> &lt;&lt;&lt;</a>
+    {/if}
+    <a n:href="Tester:cardList" title="list">^^^</a>
+    {if $nextCard != null}
+        <a n:href="Tester:cardDetail $nextCard->id"  title="{$nextCard->name}: {$nextCard->title}"> &gt;&gt;&gt;</a>
+    {else}
+        <a href="#" disabled> &gt;&gt;&gt; </a>
+    {/if}
+</div>
+
+
+<div class="inline-block">
+    {include cardTile, rotation: false }
+</div>
+
+<div class="inline-block">
+    {include cardTile, rotation: Rotation90 }
+</div>
+
+
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front ">
+        {include cardTile, rotation: false}
+    </div>
+    <div class="flip-card-back">
+        <div class="cardTile cardBack ">
+   
+        </div>
+    </div>
+  </div>
+</div>
+{/block}

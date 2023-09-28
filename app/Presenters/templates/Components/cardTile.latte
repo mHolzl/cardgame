@@ -1,0 +1,67 @@
+   {block cardTile} 
+    <style>
+        .cardId_{$card->id} {
+            background-image: url('{$constImagesRoot|noescape}{$card->default_image|noescape}?v=1');
+        }
+    </style>
+    <div class="cardTile cardId_{$card->id} cardType_{$card->parent_cardtype_name} {$rotation}">
+        <div class="cardTileOverlay"></div>
+        {if $card->cardtype_name == 'monster'}
+        <!--  MONSTER -->
+            <div class="cardHeader landType{$card->landtype_id}">
+                <div class="headerTexts">
+                    <div class="cardName">{$card->name}</div>
+                    {if $card->title != ''}  <div class="cardTitle">{$card->title}</div> {/if}
+                </div>
+                <div class="cardPrice">{$card->price}</div>
+                {for $i=0; $i < $card->rage; $i++ }
+                    <div class="cardRageCounter"><div class="icon"></div></div>
+                {/for}
+                {if $card->bonuscard > 0}
+                    <div class="cardBonusCard">
+                        <div>{$card->bonuscard}</div>
+                        <div class="icon"></div>
+                    </div>
+                {/if}
+            </div>
+            <div class="cardWP">{$card->value}</div>
+        {elseif  $card->cardtype_name == 'season'}
+        <!--  SEASON -->
+            <div class="cardHeader landType{$card->landtype_id}">
+                <div class="headerTexts">
+                    <div class="cardName">{$card->name}</div>
+                    {if $card->title != ''}  <div class="cardTitle">{$card->title}</div> {/if}
+                </div>
+                <div class="cardSeasonIcon"> </div>
+            </div>
+            <div class="cardWP">{$card->value}</div>
+        {elseif  $card->parent_cardtype_name == 'personal'}
+        <!-- PERSONAL -->
+            <div class="cardHeader2">
+                <div class="headerTexts">
+                    <div class="cardName">{$card->name}</div>
+                    {if $card->title != ''}  <div class="cardTitle">{$card->title}</div> {/if}
+                </div>
+                <div class="cardPrice">-{$card->price}</div>
+            </div>
+            <div class="cardHeader">
+                <div class="headerTexts">
+                    <div class="cardDesciption">{$card->description|noescape}</div>
+                </div>
+                <div class="cardValue">{$card->value}</div>
+            </div>
+    <!--  MONSTER -->
+        {else}
+            <div class="cardHeader landType{$card->landtype_id}">
+                <div class="headerTexts">
+                    <div class="cardName">{$card->name}</div>
+                    {if $card->title != ''}  <div class="cardTitle">{$card->title}</div> {/if}
+                </div>
+                <div class="cardValue">{$card->value}</div>
+                {for $i=0; $i < $card->price; $i++ }
+                    <div class="cardPrice"></div>
+                {/for}
+            </div>
+        {/if}
+    </div>
+    {/block}
