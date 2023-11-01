@@ -31,7 +31,7 @@ final class CardsProvider extends BaseProvider
 	 * @param int $id
 	 * @return Row|null
 	 */
-	public function getPrevById(int $id): Row|null
+	public function getPrevById(int $id, CardsFilter $filter): Row|null
 	{
 		$sql = "
 			SELECT c.*
@@ -47,7 +47,7 @@ final class CardsProvider extends BaseProvider
 	 * @param int $id
 	 * @return Row|null
 	 */
-	public function getNextById(int $id): Row|null
+	public function getNextById(int $id, CardsFilter $filter): Row|null
 	{
 		$sql = "
 			SELECT c.*
@@ -59,17 +59,18 @@ final class CardsProvider extends BaseProvider
 
 
 	/**
-	 * Vrati list adres na základě filtru a limitů
+	 * Vrati list karet na základě filtru a limitů
 	 *
-	 * @param AddressFilter $filter
+	 * @param CardsFilter $filter
 	 * @return array
 	 */
-	public function getAll(): array
+	public function getAll(CardsFilter $filter): array
 	{
 		$sql = "
 		SELECT c.*, ct.parent_id, ct.name as cardtype_name, IFNULL((SELECT name FROM cardtype AS ct2 WHERE  ct2.id = ct.parent_id), ct.name) parent_cardtype_name
 		FROM cards AS c
 		LEFT JOIN cardtype ct ON c.cardtype_id = ct.id
+		WHERE " . $filter->getFilter() . "
 		ORDER BY IFNULL((SELECT name FROM cardtype AS ct2 WHERE  ct2.id = ct.parent_id), ct.name), c.landtype_id, c.cardtype_id
 		";
 

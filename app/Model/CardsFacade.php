@@ -24,13 +24,13 @@ final class CardsFacade
 		return $this->cardsProvider->get($id);
 	}
 
-	public function getPrevById(int $id): Row|null
+	public function getPrevById(int $id, CardsFilter $filter): Row|null
 	{
-		return $this->cardsProvider->getPrevById($id);
+		return $this->cardsProvider->getPrevById($id, $filter);
 	}
-	public function getNextById(int $id): Row|null
+	public function getNextById(int $id, CardsFilter $filter): Row|null
 	{
-		return $this->cardsProvider->getNextById($id);
+		return $this->cardsProvider->getNextById($id, $filter);
 	}
 
 
@@ -42,9 +42,9 @@ final class CardsFacade
 	}
 
 
-	public function getAll(): array
+	public function getAll(CardsFilter $filter): array
 	{
-		return $this->cardsProvider->getAll();
+		return $this->cardsProvider->getAll($filter);
 	}
 
 }

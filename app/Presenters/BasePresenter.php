@@ -13,7 +13,7 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 {
     public function beforeRender()
 	{
-		$this->template->constImagesRoot = 'http://www.cardgames.local/images/';
+		$this->template->constImagesRoot = 'http://www.cardgame.local/images/';
         //$this->template->constImagesRoot = $_SERVER["DOCUMENT_ROOT"] . '/images/';
 	}
 }
