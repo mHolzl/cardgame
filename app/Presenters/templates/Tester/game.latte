@@ -1,0 +1,15 @@
+{* This is the welcome page, you can delete it *}
+{import '..\Components\cardTile.latte'}
+
+
+{block content}
+    {foreach $cardList as $card}
+    <a n:href="tester:cardDetail $card->id">
+    <div class="inline-block cardPreview" >
+        <div class="cardContainer">
+        {include cardTile, card: $card, rotation: false }
+        </div>
+    </div>
+    </a>
+    {/foreach}
+{/block}

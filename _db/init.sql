@@ -59,16 +59,16 @@ INSERT INTO `cards` (`id`,`name`, `title`, `description`, `default_image`, `valu
   (2, 'Melčiny', 'Před hlubinou', '', 'lands/waters_entrance.jpg', 1, 2, 2),
   (3, 'Vzdušný proud', 'Do povětří', '', 'lands/air_entrance.jpg', 1, 2, 3),
   (4, 'Stezka', 'Do začarovaného lesa', '', 'lands/woods_entrance.jpg', 1, 2, 4),
-  (5, 'Cesta', 'Do Temnozemě', '', 'lands/darklands_entrance.jpg', 1, 2, 5);
+  (5, 'Cesta', 'Do Temnozemě', '', 'lands/darklands_entrance.jpg', 1, 2, 5); /* TODO */
 
 /* Basic lands*/
 INSERT INTO `cards` (`id`,`name`, `title`, `description`, `default_image`, `value`, `cardtype_id`, `landtype_id`) VALUES
   (6, 'Jeskyně', '', '', 'lands/caves_landscape.jpg', 1, 3, 1),
-  (7, 'Hlubiny', '', '', 'lands/waters_entrance.jpg', 1, 3, 2),  /* TODO */
-  (8, 'Povětří', '', '', 'lands/air_entrance.jpg', 1, 3, 3), /* TODO */
-  (9, 'Začarovaný hvozd', '', '', 'lands/woods_entrance.jpg', 1, 3, 4), /* TODO */
-  (10, 'Temnozem', '', '', 'lands/darklands_landscape.jpg', 1, 3, 5), 
-  (11, 'Krajina snů', '', '', 'lands/dreamlands_landscape.jpg', 3, 2, 6);
+  (7, 'Hlubiny', '', '', 'lands/waters_landscape.jpg', 1, 3, 2), 
+  (8, 'Povětří', '', '', 'lands/air_landscape.jpg', 1, 3, 3),
+  (9, 'Začarovaný hvozd', '', '', 'lands/woods_landscape.jpg', 1, 3, 4),
+  (10, 'Temnozem', '', '', 'lands/darklands_landscape.jpg', 1, 3, 5), /* TODO */
+  (11, 'Krajina snů', '', '', 'lands/dreamlands_landscape.jpg', 3, 2, 6); /* TODO */
 
 /* Distand lands*/
 INSERT INTO `cards` (`id`,`name`, `title`, `description`, `default_image`, `value`, `price`, `cardtype_id`, `landtype_id`) VALUES
@@ -76,17 +76,17 @@ INSERT INTO `cards` (`id`,`name`, `title`, `description`, `default_image`, `valu
   (13, 'Jeskyně', 'Velká síň', '', 'lands/caves_great_cavern.jpg', 2, 1, 3, 1),
   (14, 'Jeskyně', 'Lávová pole', '', 'lands/caves_landscape.jpg', 3, 2, 3, 1), /* TODO */
 
-  (15, 'Hlubiny', 'Propast', '', 'lands/waters_entrance.jpg', 2, 1, 3, 2),  /* TODO */
-  (16, 'Hlubiny', 'Potopená flotila', '', 'lands/waters_entrance.jpg', 2, 1, 3, 2), /* TODO */
-  (17, 'Hlubiny', 'Korálový hrad', '', 'lands/waters_entrance.jpg', 3, 2, 3, 2), /* TODO */
+  (15, 'Hlubiny', 'Korálový příkop', '', 'lands/waters_coral_trench.jpg', 2, 1, 3, 2),
+  (16, 'Hlubiny', 'Ztracená galeona', '', 'lands/waters_shipwreck.jpg', 2, 1, 3, 2),
+  (17, 'Hlubiny', 'Zatopený palác', '', 'lands/waters_flooded_palace.jpg', 3, 2, 3, 2), 
 
-  (18, 'Povětří', 'Planoucí vulkán', '', 'lands/air_entrance.jpg', 2, 1, 3, 3), /* TODO */
-  (19, 'Povětří', 'Schodiště bohů ', '', 'lands/air_entrance.jpg', 2, 1, 3, 3), /* TODO */
-  (20, 'Povětří', 'Zámek v oblacích', '', 'lands/air_entrance.jpg', 3, 2, 3, 3), /* TODO */
+  (18, 'Povětří', 'Planoucí vulkán', '', 'lands/air_vulcano.jpg', 2, 1, 3, 3),
+  (19, 'Povětří', 'Schodiště bohů ', '', 'lands/air_stairs_of_gods.jpg', 2, 1, 3, 3),
+  (20, 'Povětří', 'Zámek v oblacích', '', 'lands/air_cloud_castle.jpg', 3, 2, 3, 3), 
 
-  (21, 'Začarovaný hvozd', 'Tajemné rozcestí', '', 'lands/woods_entrance.jpg', 2, 1, 3, 4),  /* TODO */
-  (22, 'Začarovaný hvozd', 'Opuštěná svatyně', '', 'lands/woods_entrance.jpg', 2, 1, 3, 4), /* TODO */
-  (23, 'Začarovaný hvozd', 'Strom života', '', 'lands/woods_entrance.jpg', 3, 2, 3, 4), /* TODO */
+  (21, 'Začarovaný hvozd', 'Tajemné rozcestí', '', 'lands/woods_crossroads.jpg', 2, 1, 3, 4), 
+  (22, 'Začarovaný hvozd', 'Opuštěná svatyně', '', 'lands/woods_sanctuary.jpg', 2, 1, 3, 4), 
+  (23, 'Začarovaný hvozd', 'Strom života', '', 'lands/woods_treeoflife.jpg', 3, 2, 3, 4),
 
   (24, 'Temnozem', 'Močály smrti', '', 'lands/darklands_entrance.jpg', 2, 1, 3, 5), /* TODO */
   (25, 'Temnozem', 'Pevnost prokletých', '', 'lands/darklands_entrance.jpg', 2, 1, 3, 5), /* TODO */
@@ -122,73 +122,73 @@ INSERT INTO `cards` (`id`,`name`, `title`, `description`, `default_image`, `valu
 
 /* Monster cards - caves */
 INSERT INTO `cards` (`id`,`name`, `default_image`, `price`, `value`, `rage`, `bonuscard`, `cardtype_id`, `landtype_id`) VALUES
-  (47, 'Červor', 'monster/default_monster.png', 1, 3, 0, 0, 8, 1),
-  (48, 'Houba masožravá', 'monster/default_monster.png', 1, 1, 0, 1, 8, 1),
-  (49, 'Bazilišek', 'monster/default_monster.png', 1, 5, 1, 0, 8, 1),
-  (50, 'Vlkopýr', 'monster/default_monster.png', 2, 6, 0, 0, 8, 1),
-  (51, 'Sklípkan bahenní', 'monster/default_monster.png', 2, 4, 0, 1, 8, 1),
-  (52, 'Olgoj Chorchoj', 'monster/default_monster.png', 2, 8, 1, 0, 8, 1),
-  (53, 'Jeskynní troll', 'monster/default_monster.png', 3, 11, 1, 0, 8, 1),
-  (54, 'Bezejmenný', 'monster/default_monster.png', 3, 13, 2, 0, 8, 1),
-  (55, 'Magmonstrum', 'monster/default_monster.png', 4, 16, 2, 0, 8, 1);
+  (47, 'Červor', 'monsters/caves_worm.jpg', 1, 3, 0, 0, 8, 1),
+  (48, 'Houba masožravá', 'monsters/default_monster.png', 1, 1, 0, 1, 8, 1),
+  (49, 'Bazilišek', 'monsters/caves_basilisk.jpg', 1, 5, 1, 0, 8, 1),
+  (50, 'Vlkopýr', 'monsters/caves_batwolf.jpg', 2, 6, 0, 0, 8, 1),
+  (51, 'Sklípkan bahenní', 'monsters/caves_mudspider.jpg', 2, 4, 0, 1, 8, 1),
+  (52, 'Olgoj Chorchoj', 'monsters/caves_olgojchorchoj.jpg', 2, 8, 1, 0, 8, 1),
+  (53, 'Jeskynní troll', 'monsters/caves_troll.jpg', 3, 11, 1, 0, 8, 1),
+  (54, 'Balrog', 'monsters/caves_balrog.jpg', 3, 13, 2, 0, 8, 1),
+  (55, 'Magmonstrum', 'monsters/caves_magmamonster.jpg', 4, 16, 2, 0, 8, 1);
 
 /* Monster cards - deepwaters */
 INSERT INTO `cards` (`id`,`name`, `default_image`, `price`, `value`, `rage`, `bonuscard`, `cardtype_id`, `landtype_id`) VALUES
-  (56, 'Rybstvo', 'monster/default_monster.png', 1, 3, 0, 0, 8, 2),
+  (56, 'Rybstvo', 'monsters/deepwaters_fishfolk.jpg', 1, 3, 0, 0, 8, 2),
   (57, 'Kelpie', 'monsters/deepwaters_kelpie.jpg', 1, 1, 0, 1, 8, 2),
-  (58, 'Krabouk', 'monster/default_monster.png', 1, 5, 1, 0, 8, 2),
-  (59, 'Korýšolam', 'monster/default_monster.png', 2, 6, 0, 0, 8, 2),
+  (58, 'Krabouk', 'monsters/deepwaters_crabspider.jpg', 1, 5, 1, 0, 8, 2),
+  (59, 'Korýšolam', 'monsters/default_monster.png', 2, 6, 0, 0, 8, 2),
   (60, 'Měsíční žralok', 'monsters/deepwaters_moonshark.jpg', 2, 4, 0, 1, 8, 2),
-  (61, 'Hydra', 'monster/default_monster.png', 2, 8, 1, 0, 8, 2),
+  (61, 'Kostihlav mořský', 'monsters/deepwaters_seabonehead.jpg', 2, 8, 1, 0, 8, 2),
   (62, 'Mořský obr', 'monsters/deepwaters_seagiant.jpg', 3, 11, 1, 0, 8, 2),
   (63, 'Kraken', 'monsters/deepwaters_kraken.jpg', 3, 13, 2, 0, 8, 2),
   (64, 'Leviathan', 'monsters/deepwaters_leviathan.jpg', 4, 16, 2, 0, 8, 2);
 
 /* Monster cards - air */
 INSERT INTO `cards` (`id`,`name`, `default_image`, `price`, `value`, `rage`, `bonuscard`, `cardtype_id`, `landtype_id`) VALUES
-  (65, 'Poletucha', 'monster/default_monster.png', 1, 3, 0, 0, 8, 3),
-  (66, 'Křídloň', 'monster/default_monster.png', 1, 1, 0, 1, 8, 3),
-  (67, 'Harpyje', 'monster/default_monster.png', 1, 5, 1, 0, 8, 3),
-  (68, 'Saň', 'monster/default_monster.png', 2, 6, 0, 0, 8, 3),
-  (69, 'Omnivident', 'monster/default_monster.png', 2, 4, 0, 1, 8, 3),
-  (70, 'Fénix', 'monster/default_monster.png', 2, 8, 1, 0, 8, 3),
-  (71, 'Gryf', 'monster/default_monster.png', 3, 11, 1, 0, 8, 3),
-  (72, 'Pavouk náhorní', 'monster/default_monster.png', 3, 13, 2, 0, 8, 3),
-  (73, 'Quetzalcóatl', 'monster/default_monster.png', 4, 16, 2, 0, 8, 3);
+  (65, 'Poletucha', 'monsters/air_flyer.jpg', 1, 3, 0, 0, 8, 3),
+  (66, 'Křídloň', 'monsters/air_wingling.jpg', 1, 1, 0, 1, 8, 3),
+  (67, 'Harpyje', 'monsters/air_harpy.jpg', 1, 5, 1, 0, 8, 3),
+  (68, 'Fénix', 'monsters/air_phoenix.jpg', 2, 6, 0, 0, 8, 3),
+  (69, 'Vševidoucí světice', 'monsters/air_allseeing_saint.jpg', 2, 4, 0, 1, 8, 3),
+  (70, 'Gryf', 'monsters/air_grifin.jpg', 2, 8, 1, 0, 8, 3),
+  (71, 'Saň', 'monsters/air_dragon.jpg', 3, 11, 1, 0, 8, 3),
+  (72, 'Pavouk náhorní', 'monsters/air_hillspider.jpg', 3, 13, 2, 0, 8, 3),
+  (73, 'Quetzalcóatl', 'monsters/default_monster.png', 4, 16, 2, 0, 8, 3);
 
 /* Monster cards - forest */
 INSERT INTO `cards` (`id`,`name`, `default_image`, `price`, `value`, `rage`, `bonuscard`, `cardtype_id`, `landtype_id`) VALUES
-  (74, 'Jezinka', 'monster/default_monster.png', 1, 3, 0, 0, 8, 4),
-  (75, 'Jožin', 'monster/default_monster.png', 1, 1, 0, 1, 8, 4),
-  (76, 'Pavouk stromový', 'monster/default_monster.png', 1, 5, 1, 0, 8, 4),
-  (77, 'Hejkal', 'monster/default_monster.png', 2, 6, 0, 0, 8, 4),
-  (78, 'Lestie', 'monster/default_monster.png', 2, 4, 0, 1, 8, 4),
-  (79, 'Zlobr', 'monster/default_monster.png', 2, 8, 1, 0, 8, 4),
-  (80, 'Ent', 'monster/default_monster.png', 3, 11, 1, 0, 8, 4),
-  (81, 'Zmej', 'monster/default_monster.png', 3, 13, 2, 0, 8, 4),
-  (82, 'Wendigo', 'monster/default_monster.png', 4, 16, 2, 0, 8, 4);
+  (74, 'Jezinka', 'monsters/default_monster.png', 1, 3, 0, 0, 8, 4),
+  (75, 'Jožin', 'monsters/default_monster.png', 1, 1, 0, 1, 8, 4),
+  (76, 'Pavouk stromový', 'monsters/default_monster.png', 1, 5, 1, 0, 8, 4),
+  (77, 'Hejkal', 'monsters/default_monster.png', 2, 6, 0, 0, 8, 4),
+  (78, 'Lestie', 'monsters/default_monster.png', 2, 4, 0, 1, 8, 4),
+  (79, 'Zlobr', 'monsters/default_monster.png', 2, 8, 1, 0, 8, 4),
+  (80, 'Ent', 'monsters/default_monster.png', 3, 11, 1, 0, 8, 4),
+  (81, 'Zmej', 'monsters/default_monster.png', 3, 13, 2, 0, 8, 4),
+  (82, 'Wendigo', 'monsters/default_monster.png', 4, 16, 2, 0, 8, 4);
 
 /* Monster cards - Darklands */
 INSERT INTO `cards` (`id`,`name`, `default_image`, `price`, `value`, `rage`, `bonuscard`, `cardtype_id`, `landtype_id`) VALUES
-  (83, 'Ghúl', 'monster/default_monster.png', 1, 3, 0, 0, 8, 5),
-  (84, 'Stínová puma', 'monster/default_monster.png', 1, 1, 0, 1, 8, 5),
-  (85, 'Půlnoční troll', 'monster/default_monster.png', 1, 5, 1, 0, 8, 5),
-  (86, 'Dýmon', 'monster/default_monster.png', 2, 6, 0, 0, 8, 5),
-  (87, 'Zlověstník', 'monster/default_monster.png', 2, 4, 0, 1, 8, 5),
-  (88, 'Dybuk', 'monster/default_monster.png', 2, 8, 1, 0, 8, 5),
-  (89, 'Žarantule', 'monster/default_monster.png', 3, 11, 1, 0, 8, 5),
-  (90, 'Padlý anděl', 'monster/default_monster.png', 3, 13, 2, 0, 8, 5),
-  (91, 'Fantom noci', 'monster/default_monster.png', 4, 16, 2, 0, 8, 5);
+  (83, 'Ghúl', 'monsters/default_monster.png', 1, 3, 0, 0, 8, 5),
+  (84, 'Stínová puma', 'monsters/default_monster.png', 1, 1, 0, 1, 8, 5),
+  (85, 'Půlnoční troll', 'monsters/default_monster.png', 1, 5, 1, 0, 8, 5),
+  (86, 'Dýmon', 'monsters/default_monster.png', 2, 6, 0, 0, 8, 5),
+  (87, 'Zlověstník', 'monsters/default_monster.png', 2, 4, 0, 1, 8, 5),
+  (88, 'Dybuk', 'monsters/default_monster.png', 2, 8, 1, 0, 8, 5),
+  (89, 'Žarantule', 'monsters/default_monster.png', 3, 11, 1, 0, 8, 5),
+  (90, 'Padlý anděl', 'monsters/default_monster.png', 3, 13, 2, 0, 8, 5),
+  (91, 'Fantom noci', 'monsters/default_monster.png', 4, 16, 2, 0, 8, 5);
 
 /* Monster cards - Dreamlands */
 INSERT INTO `cards` (`id`,`name`, `default_image`, `price`, `value`, `rage`, `bonuscard`, `cardtype_id`, `landtype_id`) VALUES
-  (92, 'Vřískoun', 'monster/default_monster.png', 3, 4, 0, 0, 8, 6),
-  (93, 'Sukuba', 'monster/default_monster.png', 4, 3, 0, 1, 8, 6),
-  (94, 'Noční můra', 'monster/default_monster.png', 5, 6, 0, 0, 8, 6),
-  (95, 'Požírač snů', 'monster/default_monster.png', 6, 5, 0, 1, 8, 6),
-  (96, 'Měsíční netvor', 'monster/default_monster.png', 7, 10, 1, 0, 8, 6),
-  (97, 'Sekáč podsvětní', 'monster/default_monster.png', 8, 13, 0, 2, 8, 6),
-  (98, 'Belzebub', 'monster/default_monster.png', 9, 10, 2, 2, 8, 6),
+  (92, 'Vřískoun', 'monsters/default_monster.png', 3, 4, 0, 0, 8, 6),
+  (93, 'Sukuba', 'monsters/default_monster.png', 4, 3, 0, 1, 8, 6),
+  (94, 'Noční můra', 'monsters/default_monster.png', 5, 6, 0, 0, 8, 6),
+  (95, 'Požírač snů', 'monsters/default_monster.png', 6, 5, 0, 1, 8, 6),
+  (96, 'Měsíční netvor', 'monsters/default_monster.png', 7, 10, 1, 0, 8, 6),
+  (97, 'Sekáč podsvětní', 'monsters/default_monster.png', 8, 13, 0, 2, 8, 6),
+  (98, 'Belzebub', 'monsters/default_monster.png', 9, 10, 2, 2, 8, 6),
   (99, 'Prastarý', 'monsters/dreamlands_greatoldone.jpg', 10, 13, 3, 2, 8, 6);
 
 
