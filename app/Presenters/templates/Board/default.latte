@@ -1,0 +1,43 @@
+
+
+{import '..\Components\cardTile.latte'}
+
+
+{block content}
+<link rel="stylesheet" type="text/css" href="\sass\board.css?v=1">
+
+    <div class="mainStatusBar"></div>
+
+    <div class="seasonDeck">
+        <div class="inline-block cardPreview Rotation90 activeCard" >
+            <div class="cardContainer">
+            {include cardTile, card: $seasons["seasonsActiveCard"], rotation: false }
+            </div>
+        </div>
+        {for $i = $seasons["seasonsActive"]; $i < $seasons["seasonsTotals"]-1; $i++}
+        <div class="inline-block cardPreview Rotation90" >
+            <div class="cardContainer">
+                <div class="cardTile cardBack">
+   
+                </div>
+            </div>
+        </div>
+        {/for}
+    </div>
+
+    <div class="placedLands">
+            {foreach $placedLands as $land}
+                <div class="cardPreview Rotation90" >
+                    <div class="cardContainer">
+                    {include cardTile, card: $land, rotation: false }
+                    </div>
+                </div>
+            {/foreach}
+    </div>
+
+    <div class="playerHand">
+        {foreach $playerHand as $cardInHand}
+           <div style="display:inline-block">{include cardTile, card: $cardInHand, rotation: false }</div> 
+        {/foreach}
+    </div>
+{/block}

@@ -3,12 +3,23 @@
   box-sizing: border-box;
 }
 
+.Rotation90 {
+  transform: rotate(90deg);
+  moz-transform-origin: bottom;
+  transform-origin: bottom;
+}
+
 .inline-block {
   display: inline-block;
 }
 
 body {
   background: url("../images/pattern.jpg") 0 0 repeat;
+}
+
+.cardUsed .cardTileOverlay {
+  background-color: #000;
+  opacity: 0.5;
 }
 
 .cardPreview {
@@ -93,19 +104,10 @@ body {
   background-size: cover;
   background-position: center;
 }
-.cardTile.Rotation90 {
-  transform: rotate(90deg);
-  moz-transform-origin: bottom;
-  transform-origin: bottom;
-}
 .cardTile.Rotation05neg, .cardTile.cardUsed {
   transform: rotate(-5deg);
   moz-transform-origin: bottom;
   transform-origin: bottom;
-}
-.cardTile.cardUsed .cardTileOverlay {
-  background-color: #000;
-  opacity: 0.5;
 }
 .cardTile.cardBack {
   background-image: url("../images/cardback.png?v=1");

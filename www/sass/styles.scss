@@ -43,6 +43,12 @@
 * {
     box-sizing: border-box;
 }
+
+.Rotation90{
+    @include transform(rotate(90deg));
+    @include transform-origin(bottom);
+}
+
 .inline-block{
     display: inline-block;
 }
@@ -60,6 +66,14 @@ $cardHeight: 345px;
 $landType_borderColor: yellow,  #a0fff6,  #e68f20,  #02f706,  black,  #e78bd0;
 $landType_backgroundColor: chocolate, #2f1cb9, #ead893,  #025304,  #443e3e,  rgb(110, 13, 110);
 $landType_textColor: white, white, black,  white, white,  white ;
+
+.cardUsed{
+    @extend .Rotation05neg;
+    .cardTileOverlay{
+        background-color: #000;
+        opacity: .5;
+    }
+}
 
 .cardPreview {
     width: 150px;
@@ -155,23 +169,11 @@ $landType_textColor: white, white, black,  white, white,  white ;
     background-size: cover;
     background-position: center;
 
-    &.Rotation90{
-        @include transform(rotate(90deg));
-        @include transform-origin(bottom);
-    }
-
     &.Rotation05neg{
         @include transform(rotate(-5deg));
         @include transform-origin(bottom);
     }
 
-    &.cardUsed{
-        @extend .Rotation05neg;
-        .cardTileOverlay{
-            background-color: #000;
-            opacity: .5;
-        }
-    }
     &.cardBack {
         background-image: url('../images/cardback.png?v=1') ;
         background-size: cover;
